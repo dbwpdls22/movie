@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 		    	scanf("%s", &country);
 				
 				ndPtr = list;
-					while (/* repeat until the ndPtr points to the end node */)
+					while (list_isEndNode(ndPtr) == 0/* repeat until the ndPtr points to the end node */)
 				{
 					//2.3.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
