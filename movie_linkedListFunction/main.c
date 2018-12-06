@@ -60,8 +60,9 @@ int main(int argc, char *argv[]) {
 					//ndPtr = the next node of the ndPtr;
 					//get object of ndPtr to mvInfo void pointer
 					//print the contents of the mvInfo
-					mv_print(ndPtr);
 					list_getNextNd(ndPtr);
+					list_getNdObj(ndPtr);
+					mv_print(ndPtr);
 				}
 				
 				break;
@@ -79,12 +80,16 @@ int main(int argc, char *argv[]) {
 					//get object of ndPtr to mvInfo void pointer
 					//if the input country matches to the country of the movie,
 					//then print the contents of the mvInfo
-				}
+					list_getNextNd(ndPtr);
+					list_getNdObj(ndPtr);
+					list_getIndexNd(country, ndPtr);
+					mv_print(ndPtr);
+			    }
 				
 				break;
 				
 			case 3:
-				//2.4.1 get minimal runtime value to search for
+				//2.4.1 get minimal 0runtime value to search for
 				printf("select minimal runtime : \n");
 				scanf("%d", &runTime);
 				
@@ -96,6 +101,10 @@ int main(int argc, char *argv[]) {
 					//get object of ndPtr to mvInfo void pointer
 					//if the input runtime is lower than the runtime of the movie,
 					//then print the contents of the mvInfo
+					list_getNextNd(ndPtr);
+					list_getNdObj(ndPtr);
+					if(ndPtr)
+					mv_print(ndPtr);
 				}
 				
 				break;

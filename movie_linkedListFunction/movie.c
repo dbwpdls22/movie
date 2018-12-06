@@ -11,7 +11,7 @@ typedef struct movInfo{
 } movInfo_t;
 
 
-void* mv_genMvInfo(char* name, float score, int runTime, char* country)
+/*void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
 	movInfo_t* mvPtr;
 	
@@ -24,7 +24,7 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 	//allocate memory and set the member variables 메모리를 할당하고 멤버 변수를 설정한다.
 	
 	return (void*)mvPtr;
-}
+}*/
 
 void mv_print(void* obj)
 {
@@ -89,7 +89,7 @@ char* mv_getName(void* obj)
 		return NULL;
 	}
 	
-	mvPtr->name = obj;
+	mvPtr->name[200] = obj;
 	
 	return mvPtr;
 }
@@ -106,7 +106,7 @@ char* mv_getCountry(void* obj)
 		return NULL;
 	}
 	
-	mvPtr->madeIn = obj;
+	mvPtr->madeIn[10] = obj;
 	
 	return mvPtr;
 }
