@@ -15,7 +15,18 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
 	movInfo_t* mvPtr;
 	
-	//allocate memory and set the member variables
+//	mvPtr = (movInfo_t*)obj->next;
+	while(mvPtr != NULL){
+	   /*scanf("%s", mvPtr->name);
+		scanf("%d", mvPtr->score);
+		scanf("%d", mvPtr->runTime);
+		scanf("%s", mvPtr->madeIn);*/
+		mv_getScore(score);
+		mv_getRunTime(runTime);
+		mv_getName(name);
+		mv_getCountry(country);
+	}
+	//allocate memory and set the member variables 메모리를 할당하고 멤버 변수를 설정한다.
 	
 	return (void*)mvPtr;
 }
@@ -37,7 +48,7 @@ void mv_print(void* obj)
 
 
 //return the score value from the input instance of movInfo_t structure
-float mv_getScore(void* obj)
+float mv_getScore(float* obj)
 {
 	
 }

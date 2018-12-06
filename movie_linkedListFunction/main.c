@@ -27,9 +27,9 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while (/* read name, country, runtime and score*/ )
+	while (ndPtr != NULL/* read name, country, runtime and score*/ )
 	{	
-		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
+	     //generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
 	}
 
