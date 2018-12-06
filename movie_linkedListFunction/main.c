@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
 	int option; //user input option
 	void *list, *mvInfo; //pointers for linked list and a specific structure instance for a movie data
 	void *ndPtr; //void pointer for linked list node
+	void *condition;
 	
 	//1. reading the movie.dat-----------------------------/
 	fp = fopen("movie.dat", "r");//1.1 FILE open
@@ -70,7 +71,7 @@ int main(int argc, char *argv[]) {
 			case 2: //print movies of specific country
 		       	//2.3.1 get country name to search for/
 			    printf("select a country : \n");
-		    	scanf("%s", &country);
+		    	scanf("%s", &condition);
 				
 				ndPtr = list;
 					while (ndPtr != 0/* repeat until the ndPtr points to the end node */)
@@ -91,10 +92,10 @@ int main(int argc, char *argv[]) {
 			case 3:
 				//2.4.1 get minimal 0runtime value to search for
 				printf("select minimal runtime : \n");
-				scanf("%d", &runTime);
+				scanf("%i", &condition);
 				
 				ndPtr = list;
-					while (ndPtr != 0/* repeat until the ndPtr points to the end node */)
+				while (ndPtr != 0/* repeat until the ndPtr points to the end node */)
 				{
 					//2.4.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
@@ -103,8 +104,10 @@ int main(int argc, char *argv[]) {
 					//then print the contents of the mvInfo
 					list_getNextNd(ndPtr);
 					list_getNdObj(ndPtr);
-					if(ndPtr)
-					mv_print(ndPtr);
+					if(ndPtr.runTime>=condition)
+					{
+					    mv_print(ndPtr);	
+					}
 				}
 				
 				break;
@@ -112,7 +115,7 @@ int main(int argc, char *argv[]) {
 			case 4:
 				//2.5.1 get minimal score value to search for
 				printf("select minimal score : \n");
-				scanf("%f", &score);
+				scanf("%f", &condition);
 				
 				ndPtr = list;
 					while (ndPtr != 0/* repeat until the ndPtr points to the end node */)
@@ -122,6 +125,12 @@ int main(int argc, char *argv[]) {
 					//get object of ndPtr to mvInfo void pointer
 					//if the input score is lower than the score of the movie,
 					//then print the contents of the mvInfo
+					list_getNextNd(ndPtr);
+					list_getNdObj(ndPtr);
+					if(ndPtr.score>=condition)
+					{
+					    mv_print(ndPtr);	
+					}
 				}
 				break;
 				
