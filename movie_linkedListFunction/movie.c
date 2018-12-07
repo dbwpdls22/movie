@@ -45,37 +45,43 @@ void mv_print(void* obj)
 //return the score value from the input instance of movInfo_t structure
 float mv_getScore(void* obj)
 {
-	scanf("%f",%obj);
-    mvPtr.score = obj;
-    
-    return mvPtr.score;
+	movInfo_t.score = obj;
+	
+	return obj;
 }
 
 //return the runtime value from the input instance of movInfo_t structure
 int mv_getRunTime(void* obj)
 {
-	scanf("%f",%obj);
+/*	scanf("%f",&obj);
     mvPtr.runtime = obj;
 	
-	return mvPtr.runtime;
+	return mvPtr.runtime;*/
+	movInfo_t.runTime = obj;
+	
+	return obj;
 }
 
 //return the name string pointer from the input instance of movInfo_t structure
 char* mv_getName(void* obj)
 {
-    gets_s(obj,199);
-	strcpy(mvPtr.name, obj);
+	strcpy(obj, movInfo_t.name);
 	
-	return mvPtr.name; 
+	return obj;
+
 }
 
 //return the country string pointer from the input instance of movInfo_t structure
 char* mv_getCountry(void* obj)
 {
-	gets_s(obj,9);
+	/*gets_s(obj,9);
 	strcpy(mvPtr.madeIn, obj);
 	
-	return mvPtr.madeIn; 
+	return mvPtr.madeIn;*/
+	strcpy(obj, movInfo_t.madeIn);
+	
+	return obj;
+	 
 }
 
 

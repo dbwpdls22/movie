@@ -74,17 +74,17 @@ int main(int argc, char *argv[]) {
 		    	scanf("%s", &condition);
 				
 				ndPtr = list;
-					while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
+					while (list_isEndNode(list) != 1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.3.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
 					//get object of ndPtr to mvInfo void pointer
 					//if the input country matches to the country of the movie,
 					//then print the contents of the mvInfo
-					list_getNextNd(ndPtr);
-					list_getNdObj(ndPtr);
-					list_getIndexNd(country, ndPtr);
-					mv_print(ndPtr);
+					list_getNextNd(list);
+					list_getNdObj(list);
+					list_srchNd((country , condition), condition, list);
+					mv_print(list);
 			    }
 				
 				break;
@@ -95,44 +95,45 @@ int main(int argc, char *argv[]) {
 				scanf("%i", &condition);
 				
 				ndPtr = list;
-				while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
+				while (list_isEndNode(list) != 1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.4.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
 					//get object of ndPtr to mvInfo void pointer
 					//if the input runtime is lower than the runtime of the movie,
 					//then print the contents of the mvInfo
-					list_getNextNd(ndPtr);
-					list_getNdObj(ndPtr);
-					if(list.runTime>=condition)
+					list_getNextNd(list);
+					list_getNdObj(list);
+					if(runTime>=condition)
 					{
-					    mv_print(ndPtr);	
+					    mv_print(list);	
 					}
 				}
 				
 				break;
 				
-			case 4:
+			/*case 4:
 				//2.5.1 get minimal score value to search for
 				printf("select minimal score : \n");
 				scanf("%f", &condition);
 				
 				ndPtr = list;
-					while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
+					while (list_isEndNode(list) != 1 /*repeat until the ndPtr points to the end node *//*)
 				{
 					//2.5.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
 					//get object of ndPtr to mvInfo void pointer
 					//if the input score is lower than the score of the movie,
 					//then print the contents of the mvInfo
-					list_getNextNd(ndPtr);
-					list_getNdObj(ndPtr);
-					if(ndPtr.score>=condition)
+					list_getNextNd(list);
+					list_getNdObj(list);
+					mv_getScore(score);
+					if(score>condition)
 					{
-					    mv_print(ndPtr);	
+					    mv_print(list);	
 					}
 				}
-				break;
+				break;*/
 				
 			case 5:
 				printf("Bye!\n\n");
