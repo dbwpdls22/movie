@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while (ndPtr != NULL/* read name, country, runtime and score*/ )
+	while (list_isEndNode(ndPtr) != 1/* read name, country, runtime and score*/ )
 	{	
 	    mv_genMvInfo(name, score, runTime, country); //generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
 				printf("printing all the movies in the list.....\n\n\n");
 				
 				ndPtr = list;
-				while (ndPtr != NULL/* repeat until the ndPtr points to the end node */)
+				while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 		    	scanf("%s", &condition);
 				
 				ndPtr = list;
-					while (ndPtr != 0/* repeat until the ndPtr points to the end node */)
+					while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.3.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
 				scanf("%i", &condition);
 				
 				ndPtr = list;
-				while (ndPtr != 0/* repeat until the ndPtr points to the end node */)
+				while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.4.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
@@ -104,7 +104,7 @@ int main(int argc, char *argv[]) {
 					//then print the contents of the mvInfo
 					list_getNextNd(ndPtr);
 					list_getNdObj(ndPtr);
-					if(ndPtr.runTime>=condition)
+					if(list.runTime>=condition)
 					{
 					    mv_print(ndPtr);	
 					}
@@ -118,7 +118,7 @@ int main(int argc, char *argv[]) {
 				scanf("%f", &condition);
 				
 				ndPtr = list;
-					while (ndPtr != 0/* repeat until the ndPtr points to the end node */)
+					while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.5.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;

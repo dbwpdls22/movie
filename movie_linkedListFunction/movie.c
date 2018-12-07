@@ -45,70 +45,37 @@ void mv_print(void* obj)
 //return the score value from the input instance of movInfo_t structure
 float mv_getScore(void* obj)
 {
-	movInfo_t* mvPtr;
-	
-	mvPtr =(movInfo_t*)malloc(sizeof(movInfo_t));
-	if(mvPtr == NULL)
-	{
-		printf("ERROR\n");
-		return 0;
-	}
-	
-	mvPtr->score = obj;
-	
-	return mvPtr;
+	scanf("%f",%obj);
+    mvPtr.score = obj;
+    
+    return mvPtr.score;
 }
 
 //return the runtime value from the input instance of movInfo_t structure
 int mv_getRunTime(void* obj)
 {
-	movInfo_t* mvPtr;
+	scanf("%f",%obj);
+    mvPtr.runtime = obj;
 	
-	mvPtr =(movInfo_t*)malloc(sizeof(movInfo_t));
-	if(mvPtr == NULL)
-	{
-		printf("ERROR\n");
-		return NULL;
-	}
-	
-	mvPtr->runTime = obj;
-	
-	return mvPtr;
-	
+	return mvPtr.runtime;
 }
 
 //return the name string pointer from the input instance of movInfo_t structure
 char* mv_getName(void* obj)
 {
-	movInfo_t* mvPtr;
+    gets_s(obj,199);
+	strcpy(mvPtr.name, obj);
 	
-	mvPtr =(movInfo_t*)malloc(sizeof(movInfo_t));
-	if(mvPtr == NULL)
-	{
-		printf("ERROR\n");
-		return NULL;
-	}
-	
-	mvPtr->name[200] = obj;
-	
-	return mvPtr;
+	return mvPtr.name; 
 }
 
 //return the country string pointer from the input instance of movInfo_t structure
 char* mv_getCountry(void* obj)
 {
-	movInfo_t* mvPtr;
+	gets_s(obj,9);
+	strcpy(mvPtr.madeIn, obj);
 	
-	mvPtr =(movInfo_t*)malloc(sizeof(movInfo_t));
-	if(mvPtr == NULL)
-	{
-		printf("ERROR\n");
-		return NULL;
-	}
-	
-	mvPtr->madeIn[10] = obj;
-	
-	return mvPtr;
+	return mvPtr.madeIn; 
 }
 
 
