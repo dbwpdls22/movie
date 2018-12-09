@@ -15,7 +15,10 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
 	movInfo_t* mvPtr;
 
-    mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
+    (movInfo_t*)malloc(sizeof(movInfo_t->name))=(char*)malloc(sizeof(char));
+    (movInfo_t*)malloc(sizeof(movInfo_t))->score=(float*)malloc(sizeof(float));
+    (movInfo_t*)malloc(sizeof(movInfo_t))->runTime=(int*)malloc(sizeof(int));
+    (movInfo_t*)malloc(sizeof(movInfo_t))->country=(char*)malloc(sizeof(char));
 	//allocate memory and set the member variables 메모리를 할당하고 멤버 변수를 설정한다.
 	
 	return (void*)mvPtr;
