@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 	int option; //user input option
 	void *list, *mvInfo; //pointers for linked list and a specific structure instance for a movie data
 	void *ndPtr; //void pointer for linked list node
-	void *condition;
+	float condition;
 	
 	//1. reading the movie.dat-----------------------------/
 	fp = fopen("movie.dat", "r");//1.1 FILE open
@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
 					//then print the contents of the mvInfo
 					list_getNextNd(list);
 					list_getNdObj(list);
-					list_srchNd((country , condition), condition, list);
+					list_getIndexNd(condition, list);
 					mv_print(list);
 			    }
 				
@@ -112,13 +112,13 @@ int main(int argc, char *argv[]) {
 				
 				break;
 				
-			/*case 4:
+			case 4:
 				//2.5.1 get minimal score value to search for
 				printf("select minimal score : \n");
 				scanf("%f", &condition);
 				
 				ndPtr = list;
-					while (list_isEndNode(list) != 1 /*repeat until the ndPtr points to the end node *//*)
+					while (list_isEndNode(list) != 1 /*repeat until the ndPtr points to the end node */)
 				{
 					//2.5.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
@@ -127,13 +127,12 @@ int main(int argc, char *argv[]) {
 					//then print the contents of the mvInfo
 					list_getNextNd(list);
 					list_getNdObj(list);
-					mv_getScore(score);
-					if(score>condition)
+					if(score>=condition)
 					{
 					    mv_print(list);	
 					}
 				}
-				break;*/
+				break;
 				
 			case 5:
 				printf("Bye!\n\n");

@@ -14,13 +14,8 @@ typedef struct movInfo{
 void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
 	movInfo_t* mvPtr;
-	
-	while(mvPtr != NULL){
-		float mv_getScore(score);
-		mv_getRunTime(runTime);
-		mv_getName(name);
-		mv_getCountry(country);
-	}
+
+    mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
 	//allocate memory and set the member variables 메모리를 할당하고 멤버 변수를 설정한다.
 	
 	return (void*)mvPtr;
@@ -45,7 +40,7 @@ void mv_print(void* obj)
 //return the score value from the input instance of movInfo_t structure
 float mv_getScore(void* obj)
 {
-	movInfo_t.score = obj;
+	scanf("%f",obj);
 	
 	return obj;
 }
@@ -57,7 +52,8 @@ int mv_getRunTime(void* obj)
     mvPtr.runtime = obj;
 	
 	return mvPtr.runtime;*/
-	movInfo_t.runTime = obj;
+	scanf("%i",obj);
+
 	
 	return obj;
 }
@@ -65,7 +61,7 @@ int mv_getRunTime(void* obj)
 //return the name string pointer from the input instance of movInfo_t structure
 char* mv_getName(void* obj)
 {
-	strcpy(obj, movInfo_t.name);
+	gets_s(obj,99);
 	
 	return obj;
 
@@ -78,7 +74,7 @@ char* mv_getCountry(void* obj)
 	strcpy(mvPtr.madeIn, obj);
 	
 	return mvPtr.madeIn;*/
-	strcpy(obj, movInfo_t.madeIn);
+	gets_s(obj,9);
 	
 	return obj;
 	 
