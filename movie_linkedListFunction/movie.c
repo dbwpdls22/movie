@@ -15,11 +15,19 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
 	movInfo_t* mvPtr;
 
-    (movInfo_t*)malloc(sizeof(movInfo_t->name))=(char*)malloc(sizeof(char));
-    (movInfo_t*)malloc(sizeof(movInfo_t))->score=(float*)malloc(sizeof(float));
-    (movInfo_t*)malloc(sizeof(movInfo_t))->runTime=(int*)malloc(sizeof(int));
-    (movInfo_t*)malloc(sizeof(movInfo_t))->country=(char*)malloc(sizeof(char));
-	//allocate memory and set the member variables 메모리를 할당하고 멤버 변수를 설정한다.
+    mvPtr =(movInfo_t*)malloc(sizeof(movInfo_t));
+    
+	if(mvPtr == NULL)
+	{
+		printf("ERROR\n");
+		return NULL; 
+	}
+	
+	mv_getName(name);
+    mv_getScore(score);
+    mv_getRunTime(runTime);
+	mv_getCountry(country);
+
 	
 	return (void*)mvPtr;
 }
@@ -43,44 +51,41 @@ void mv_print(void* obj)
 //return the score value from the input instance of movInfo_t structure
 float mv_getScore(void* obj)
 {
-	scanf("%f",obj);
+	movInfo_t* mvPtr;
 	
-	return obj;
+	scanf("f",&obj);
+	
+	return mvPtr->score;
 }
 
 //return the runtime value from the input instance of movInfo_t structure
 int mv_getRunTime(void* obj)
 {
-/*	scanf("%f",&obj);
-    mvPtr.runtime = obj;
-	
-	return mvPtr.runtime;*/
-	scanf("%i",obj);
-
-	
-	return obj;
+    movInfo_t* mvPtr;
+    
+    scanf("i", &obj);
+    
+	return mvPtr->runTime;
 }
 
 //return the name string pointer from the input instance of movInfo_t structure
 char* mv_getName(void* obj)
 {
-	gets_s(obj,99);
-	
-	return obj;
-
+    movInfo_t* mvPtr;
+    
+    gets_s(obj, 99);
+    
+	return mvPtr->name;
 }
 
 //return the country string pointer from the input instance of movInfo_t structure
 char* mv_getCountry(void* obj)
 {
-	/*gets_s(obj,9);
-	strcpy(mvPtr.madeIn, obj);
+	movInfo_t* mvPtr;
 	
-	return mvPtr.madeIn;*/
-	gets_s(obj,9);
+	gets_s(obj, 9);
 	
-	return obj;
-	 
+	return mvPtr->madeIn;
 }
 
 
