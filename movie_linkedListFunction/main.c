@@ -6,6 +6,7 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
+
 int main(int argc, char *argv[]) {
 	
 	FILE *fp; //FILE pointer for reading movie data 
@@ -36,7 +37,7 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while (1/* read name, country, runtime and score*/ )
+	while(fscanf(fp,"%s,%s,%i,%f",name,country,&runTime,&score)!=NULL/* read name, country, runtime and score*/ )
 	{	
 	    mv_genMvInfo(name, score, runTime, country); //generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
@@ -44,8 +45,7 @@ int main(int argc, char *argv[]) {
 
 	fclose(fp);//1.4 FILE close/
 	
-	
-	
+		
 	//2. program start
 	while(exit_flag == 0) 
 	{   //2.1 print menu message and get input option/
@@ -158,3 +158,6 @@ int main(int argc, char *argv[]) {
 	
 	return 0;
 }
+
+
+
