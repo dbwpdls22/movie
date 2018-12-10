@@ -18,7 +18,7 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 	mv_getName(name);
 	float* mv_getScore(score);
     int* mv_getRunTime(runTime);
-    mv_getCountry(mvPtr->madeIn);
+    mv_getCountry(country);
 	
 	return (void*)mvPtr;
 }
@@ -58,11 +58,21 @@ float* mv_getScore(void* obj)
     //obj = (movInfo_t*)malloc(sizeof(movInfo_t));
  
 	//return obj;
-	movInfo_t *add = (movInfo_t*)malloc(sizeof(movInfo_t));
+	/*movInfo_t *add = (movInfo_t*)malloc(sizeof(movInfo_t));
 	
 	add = obj;
 	
-	return obj;
+	return obj;*/
+	/*movInfo_t* mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
+
+	
+	return obj;*/
+	movInfo_t *mvPtr;
+	mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
+	//(float)obj=mvPtr->score:
+	
+	return mvPtr;
+	
 }
 
 //return the runtime value from the input instance of movInfo_t structure
@@ -86,11 +96,22 @@ int* mv_getRunTime(void* obj)
    // obj = (movInfo_t*)malloc(sizeof(movInfo_t));
  
 	//return obj;
-	movInfo_t *add = (movInfo_t*)malloc(sizeof(movInfo_t));
+	/*movInfo_t *add = (movInfo_t*)malloc(sizeof(movInfo_t));
 	
 	add = obj;
 	
+	return obj;*/
+	movInfo_t* mvPtr;
+    mvPtr = (int*)malloc(sizeof(int));
+    mvPtr->score=obj;
+
+	
 	return obj;
+	/*movInfo_t *mvPtr;
+	*mvPtr = (float*)malloc(sizeof(movInfo_t));
+	(float)obj = mvPtr->score;
+	
+	return obj;*/
 }
 
 //return the name string pointer from the input instance of movInfo_t structure
@@ -113,9 +134,13 @@ char* mv_getName(void* obj)
     
  
 	//return obj;
-	movInfo_t *add = (movInfo_t*)malloc(sizeof(movInfo_t));
+	/* movInfo_t* mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
+
 	
-	*add->name = obj;
+	return obj;*/
+	movInfo_t *mvPtr;
+	mvPtr = (char*)malloc(sizeof(char));
+	strcpy(mvPtr->name, obj);
 	
 	return obj;
 }
@@ -142,12 +167,15 @@ char* mv_getCountry(void* obj)
  
 	//return obj;
 	
-	movInfo_t *add = (movInfo_t*)malloc(sizeof(movInfo_t));
+    /*movInfo_t* mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
+
 	
-	*add->madeIn = obj;
+	return obj;*/
+	movInfo_t *mvPtr;
+	mvPtr = (char*)malloc(sizeof(char));
+	strcpy(mvPtr->madeIn, obj);
 	
 	return obj;
-	
 }
 
 
