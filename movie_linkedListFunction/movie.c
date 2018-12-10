@@ -11,14 +11,14 @@ typedef struct movInfo{
 } movInfo_t;
 
 
-void* mv_genMvInfo(char* name, float* score, int* runTime, char* country)
+void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
 	movInfo_t* mvPtr;
 	
 	mv_getName(name);
 	mv_getCountry(country);
-	mv_getRunTime(runTime);
-    mv_getScore(score);
+    int* mv_getRunTime(runTime);
+    float* mv_getScore(score);
 	
 	return (void*)mvPtr;
 }
@@ -40,19 +40,23 @@ void mv_print(void* obj)
 
 
 //return the score value from the input instance of movInfo_t structure
-float mv_getScore(void* obj)
+float* mv_getScore(float* obj)
 {      
     float* mvPtr = malloc(sizeof(float));
 	
-	return *mvPtr;
+	mvPtr = obj;
+	
+	return obj;
 }
 
 //return the runtime value from the input instance of movInfo_t structure
-int mv_getRunTime(void* obj)
+int* mv_getRunTime(int* obj)
 {
     int *mvPtr = malloc(sizeof(int));
 	
-	return *mvPtr;
+	mvPtr = obj;
+	
+	return obj;
 }
 
 //return the name string pointer from the input instance of movInfo_t structure

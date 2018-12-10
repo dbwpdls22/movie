@@ -20,16 +20,17 @@ int main(int argc, char *argv[]) {
 	void *list, *mvInfo; //pointers for linked list and a specific structure instance for a movie data
 	void *ndPtr; //void pointer for linked list node
 	float condition;
+	int count;
 	
 	//1. reading the movie.dat-----------------------------/
 	fp = fopen("movie.dat", "r");//1.1 FILE open
 	
-	printf("Reading the data files...");
+	printf("Reading the data files...\n");
 	
     if(fp == NULL){
 		/*list_len(fp);
 		printf("Read done! %i items are read.\n\n",);*/
-		printf("ERROR!\n");
+		printf("ERROR!\n\n");
 		return -1;
 	}
 	
@@ -45,6 +46,8 @@ int main(int argc, char *argv[]) {
 
 	fclose(fp);//1.4 FILE close/
 	
+	printf("Read done!\n");
+	printf("%d items are read\n",list_len(list));
 		
 	//2. program start
 	while(exit_flag == 0) 
@@ -57,7 +60,7 @@ int main(int argc, char *argv[]) {
 		printf("5. exit \n");
 		printf("--------------------Menu--------------------\n\n");
 		
-		printf("--select an option : \n");
+		printf("--select an option :");
 		scanf("%d", &option);
 		
 		switch(option)
@@ -81,7 +84,7 @@ int main(int argc, char *argv[]) {
 				
 			case 2: //print movies of specific country
 		       	//2.3.1 get country name to search for/
-			    printf("select a country : \n");
+			    printf("select a country :");
 		    	scanf("%s", &condition);
 				
 				ndPtr = list;
@@ -102,7 +105,7 @@ int main(int argc, char *argv[]) {
 				
 			case 3:
 				//2.4.1 get minimal 0runtime value to search for
-				printf("select minimal runtime : \n");
+				printf("select minimal runtime :");
 				scanf("%i", &condition);
 				
 				ndPtr = list;
@@ -125,7 +128,7 @@ int main(int argc, char *argv[]) {
 				
 			case 4:
 				//2.5.1 get minimal score value to search for
-				printf("select minimal score : \n");
+				printf("select minimal score :");
 				scanf("%f", &condition);
 				
 				ndPtr = list;
