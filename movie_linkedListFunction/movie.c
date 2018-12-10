@@ -11,7 +11,7 @@ typedef struct movInfo{
 } movInfo_t;
 
 
-void* mv_genMvInfo(char* name, float score, int runTime, char* country)
+void* mv_genMvInfo(char* name, float* score, int* runTime, char* country)
 {
 	movInfo_t* mvPtr;
 	
@@ -42,38 +42,38 @@ void mv_print(void* obj)
 //return the score value from the input instance of movInfo_t structure
 float mv_getScore(void* obj)
 {      
-    /*movInfo_t* mvPtr;
-	mvPtr.score = (float*)malloc(sizeof(float));      
- 
-	return obj;*/
-	return malloc(sizeof(float));
+    float* mvPtr = malloc(sizeof(float));
+	
+	return *mvPtr;
 }
 
 //return the runtime value from the input instance of movInfo_t structure
 int mv_getRunTime(void* obj)
 {
-    /*movInfo_t* mvPtr;
-	mvPtr.runTime = (int*)malloc(sizeof(int));      
+    int *mvPtr = malloc(sizeof(int));
 	
-	return mvPtr;*/
-	return malloc(sizeof(int));
+	return *mvPtr;
 }
 
 //return the name string pointer from the input instance of movInfo_t structure
 char* mv_getName(void* obj)
 {
-	/*movInfo_t* mvPtr;
-	mvPtr.name = (char*)malloc(sizeof(char));    
-		
-	return mvPtr;*/
-	struct movInfo_t *mvPtr = malloc(sizeof(movInfo_t));    
-	return mvPtr;
+	char *mvPtr = malloc(sizeof(char));
+	
+	strcpy(obj,mvPtr);
+	
+	return obj;
 }
 
 //return the country string pointer from the input instance of movInfo_t structure
 char* mv_getCountry(void* obj)
-{
-	return malloc(sizeof(char));
+{ 
+	char *mvPtr = malloc(sizeof(char));
+	
+	strcpy(obj,mvPtr);
+	
+	return obj;
+	
 }
 
 
