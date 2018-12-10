@@ -23,17 +23,28 @@ int main(int argc, char *argv[]) {
 	//1. reading the movie.dat-----------------------------/
 	fp = fopen("movie.dat", "r");//1.1 FILE open
 	
+	printf("Reading the data files...");
+	
+    if(fp == NULL){
+		/*list_len(fp);
+		printf("Read done! %i items are read.\n\n",);*/
+		printf("ERROR!\n");
+		return -1;
+	}
+	
 	//1.2 list generation (use function list_genList() )
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while (list_isEndNode(ndPtr) != 1/* read name, country, runtime and score*/ )
+	while (1/* read name, country, runtime and score*/ )
 	{	
 	    mv_genMvInfo(name, score, runTime, country); //generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
 	}
 
 	fclose(fp);//1.4 FILE close/
+	
+	
 	
 	//2. program start
 	while(exit_flag == 0) 

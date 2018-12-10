@@ -11,7 +11,7 @@ typedef struct movInfo{
 } movInfo_t;
 
 
-void* mv_genMvInfo(char* name, float* score, int* runTime, char* country)
+void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
 	movInfo_t* mvPtr;
 	
@@ -19,8 +19,6 @@ void* mv_genMvInfo(char* name, float* score, int* runTime, char* country)
 	mv_getCountry(country);
 	mv_getRunTime(runTime);
     mv_getScore(score);
-
-
 	
 	return (void*)mvPtr;
 }
@@ -45,7 +43,8 @@ void mv_print(void* obj)
 float mv_getScore(void* obj)
 {
 	movInfo_t* mvPtr;
-    mvPtr =(float*)malloc(sizeof(float));
+    mvPtr =(obj*)malloc(sizeof(obj));
+    
     
 	return mvPtr->score;
 }
@@ -54,7 +53,7 @@ float mv_getScore(void* obj)
 int mv_getRunTime(void* obj)
 {
     movInfo_t* mvPtr;
-    mvPtr =(int*)malloc(sizeof(int));
+    mvPtr =(obj*)malloc(sizeof(obj));
     
 	return mvPtr->runTime;
 }
@@ -63,15 +62,20 @@ int mv_getRunTime(void* obj)
 char* mv_getName(void* obj)
 {
 	movInfo_t* mvPtr;
-    mvPtr =(char*)malloc(sizeof(char));
+    mvPtr =(obj*)malloc(sizeof(obj));
+    strcpy(mvPtr->name, obj);
     
 	return mvPtr->name;
+	
 }
 
 //return the country string pointer from the input instance of movInfo_t structure
 char* mv_getCountry(void* obj)
 {
-    mvPtr=(char*)malloc(sizeof(char));
+	movInfo_t* mvPtr;
+	
+    mvPtr=(obj*)malloc(sizeof(obj));
+    strcpy(mvPtr->madeIn, obj);
     
 	return mvPtr->madeIn;
 }
