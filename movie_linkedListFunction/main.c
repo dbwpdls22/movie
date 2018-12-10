@@ -28,8 +28,6 @@ int main(int argc, char *argv[]) {
 	printf("Reading the data files...\n");
 	
     if(fp == NULL){
-		/*list_len(fp);
-		printf("Read done! %i items are read.\n\n",);*/
 		printf("ERROR!\n\n");
 		return -1;
 	}
@@ -38,7 +36,7 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while(fscanf(fp,"%s,%s,%i,%f",name,country,&runTime,&score)!=EOF/* read name, country, runtime and score*/ )
+	while(EOF!=fscanf(fp,"%s %s %i %f",name,country,&runTime,&score)/* read name, country, runtime and score*/ )
 	{	
 	    mv_genMvInfo(name, score, runTime, country); //generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
