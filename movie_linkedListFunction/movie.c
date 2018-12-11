@@ -20,12 +20,13 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
     //fscanf(fp,"%s %s %i %f",mvPtr->name,mvPtr->madeIn,&mvPtr->runTime,&mvPtr->score);
     
     strcpy(mvPtr->name,name);
+    
+    strcpy(mvPtr->madeIn,country);
   
     mvPtr->score = score;
   
     mvPtr->runTime = runTime;
     
-    strcpy(mvPtr->madeIn,country);
 
 	
 	return (void*)mvPtr;

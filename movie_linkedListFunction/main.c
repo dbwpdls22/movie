@@ -36,12 +36,15 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while(fscanf(fp,"%s %f %i %s",name, &score, &runTime, country) != EOF/* read name, country, runtime and score*/ )
+	while(fscanf(fp,"%s %s %i %f",name,country,&runTime,&score) != EOF/* read name, country, runtime and score*/ )
 	{
+
 		fscanf(fp,"%s %s %i %f",name,country,&runTime,&score);
 		
-	    mvInfo = mv_genMvInfo(name, score, runTime, country); //generate a movie info instance(mvInfo) with function mv_genMvInfo()
-		list_addTail(mvInfo, list);	
+	    mvInfo = mv_genMvInfo(name, score, runTime, country);
+		 //generate a movie info instance(mvInfo) with function mv_genMvInfo()
+		list_addTail(mvInfo, list);
+		list_addNext(mvInfo, list);			
 	}
 
 	fclose(fp);//1.4 FILE close/
@@ -75,16 +78,11 @@ int main(int argc, char *argv[]) {
 					//ndPtr = the next node of the ndPtr;
 					//get object of ndPtr to mvInfo void pointer
 					//print the contents of the mvInfo
-					list_getNextNd(ndPtr);
-					mv_getName(ndPtr);
-					list_getNdObj(ndPtr);
-					mv_getRunTime(ndPtr);
-					list_getNdObj(ndPtr);
-					mv_getScore(ndPtr);
-					list_getNdObj(ndPtr);
-					mv_getCountry(ndPtr);
-					list_getNdObj(ndPtr);
-					mv_print(ndPtr);
+				    ndPtr = list_getNextNd(list);
+				    list_getNdObj(mvInfo);
+					mv_print(mvInfo);
+					ndPtr = list_getNextNd(list);
+					
 				}
 				
 				break;
