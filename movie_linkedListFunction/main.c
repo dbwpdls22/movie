@@ -36,8 +36,10 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while(EOF != fscanf(fp,"%s %s %i %f",name,country,&runTime,&score)/* read name, country, runtime and score*/ )
+	while(fscanf(fp,"%s %f %i %s",name, &score, &runTime, country) != EOF/* read name, country, runtime and score*/ )
 	{
+		fscanf(fp,"%s %s %i %f",name,country,&runTime,&score);
+		
 	    mvInfo = mv_genMvInfo(name, score, runTime, country); //generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);	
 	}
@@ -74,6 +76,13 @@ int main(int argc, char *argv[]) {
 					//get object of ndPtr to mvInfo void pointer
 					//print the contents of the mvInfo
 					list_getNextNd(ndPtr);
+					mv_getName(ndPtr);
+					list_getNdObj(ndPtr);
+					mv_getRunTime(ndPtr);
+					list_getNdObj(ndPtr);
+					mv_getScore(ndPtr);
+					list_getNdObj(ndPtr);
+					mv_getCountry(ndPtr);
 					list_getNdObj(ndPtr);
 					mv_print(ndPtr);
 				}
