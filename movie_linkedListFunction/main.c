@@ -37,13 +37,11 @@ int main(int argc, char *argv[]) {
 	
 	//1.3 read each movie data from the file and add it to the linked list
 	while(fscanf(fp,"%s %s %i %f",name,country,&runTime,&score) != EOF/* read name, country, runtime and score*/ )
-	{
-
-		fscanf(fp,"%s %s %i %f",name,country,&runTime,&score);
+	{	
 	    mvInfo = mv_genMvInfo(name, score, runTime, country);
 		 //generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
-	 	list_addNext(mvInfo, list);	
+//	 	list_addNext(mvInfo, list);	
 		 
 		 		
 	}
@@ -74,7 +72,7 @@ int main(int argc, char *argv[]) {
 				
 				ndPtr = list;
 				while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
-				{printf("-----------------\n\n");
+				{
 					//2.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
 					//get object of ndPtr to mvInfo void pointer
@@ -86,6 +84,7 @@ int main(int argc, char *argv[]) {
                     mv_getName(mvInfo);
                     mv_getCountry(mvInfo);*/
 					mv_print(mvInfo);	
+					printf("-----------------\n\n");
 					
 				}
 				
@@ -94,7 +93,7 @@ int main(int argc, char *argv[]) {
 			case 2: //print movies of specific country
 		       	//2.3.1 get country name to search for/
 			    printf("select a country :");
-		    	scanf("%s", &condition);
+		    	scanf("%s", &country);
 				
 				ndPtr = list;
 					while (list_isEndNode(list) != 1/* repeat until the ndPtr points to the end node */)
@@ -104,10 +103,11 @@ int main(int argc, char *argv[]) {
 					//get object of ndPtr to mvInfo void pointer
 					//if the input country matches to the country of the movie,
 					//then print the contents of the mvInfo
-					list_getNextNd(list);
-					list_getNdObj(list);
-					list_getIndexNd(condition, list);
-					mv_print(list);
+					ndPtr = list_getNextNd(list);
+					mvInfo = list_getNdObj(list);
+				    mv_getCountry(mvInfo);
+					ndPtr = list_srchNd((mvInfo, country), country, list);
+					mv_print(mvInfo);
 			    }
 				
 				break;
@@ -115,7 +115,7 @@ int main(int argc, char *argv[]) {
 			case 3:
 				//2.4.1 get minimal 0runtime value to search for
 				printf("select minimal runtime :");
-				scanf("%i", &condition);
+				scanf("%i", &runTime);
 				
 				ndPtr = list;
 				while (list_isEndNode(list) != 1/* repeat until the ndPtr points to the end node */)
