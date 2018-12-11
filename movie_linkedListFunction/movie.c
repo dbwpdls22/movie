@@ -14,19 +14,19 @@ typedef struct movInfo{
 void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 {
 	movInfo_t* mvPtr;
-	
-/*	mv_getName(name);
-	float* mv_getScore(score);
-    int* mv_getRunTime(runTime);
-    mv_getCountry(country);*/
-   /* mvPtr->name;
-    mvPtr->score;
-    mvPtr->runTime;
-    mvPtr->madeIn;*/
-    mvPtr->name[200] = (char*)malloc(sizeof(char));
-    mvPtr->score = (float*)malloc(sizeof(float));
-    mvPtr->runTime = (int*)malloc(sizeof(int));
-    mvPtr->madeIn[10] = (char*)malloc(sizeof(char));
+
+    mvPtr=(movInfo_t*)malloc(sizeof(movInfo_t));
+    
+    //fscanf(fp,"%s %s %i %f",mvPtr->name,mvPtr->madeIn,&mvPtr->runTime,&mvPtr->score);
+    
+    strcpy(mvPtr->name,name);
+  
+    mvPtr->score = score;
+  
+    mvPtr->runTime = runTime;
+    
+    strcpy(mvPtr->madeIn,country);
+
 	
 	return (void*)mvPtr;
 }
@@ -121,7 +121,8 @@ int mv_getRunTime(void* obj)
 	/*movInfo_t *mvPtr;
 	*mvPtr = (float*)malloc(sizeof(movInfo_t));
 	(float)obj = mvPtr->score;*/
-	movInfo_t* mvPtr = (movInfo_t*)obj;
+	movInfo_t* mvPtr =(movInfo_t*)obj;
+	
 	
 	return mvPtr->runTime;	
 }
@@ -196,6 +197,7 @@ char* mv_getCountry(void* obj)
 
 	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
+	
 	
 	return mvPtr->madeIn;
 }
