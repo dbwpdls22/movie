@@ -40,11 +40,12 @@ int main(int argc, char *argv[]) {
 	{
 
 		fscanf(fp,"%s %s %i %f",name,country,&runTime,&score);
-		
 	    mvInfo = mv_genMvInfo(name, score, runTime, country);
 		 //generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
-		list_addNext(mvInfo, list);			
+	 	list_addNext(mvInfo, list);	
+		 
+		 		
 	}
 
 	fclose(fp);//1.4 FILE close/
@@ -78,10 +79,13 @@ int main(int argc, char *argv[]) {
 					//ndPtr = the next node of the ndPtr;
 					//get object of ndPtr to mvInfo void pointer
 					//print the contents of the mvInfo
-				    ndPtr = list_getNextNd(list);
-				    list_getNdObj(mvInfo);
-					mv_print(mvInfo);
-					ndPtr = list_getNextNd(list);
+				    ndPtr = list_getNextNd(ndPtr);
+				    mvInfo = list_getNdObj(ndPtr);
+				  /*mv_getScore(mvInfo);
+				    mv_getRunTime(mvInfo);
+                    mv_getName(mvInfo);
+                    mv_getCountry(mvInfo);*/
+					mv_print(mvInfo);	
 					
 				}
 				

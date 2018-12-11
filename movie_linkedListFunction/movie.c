@@ -26,8 +26,6 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
     mvPtr->score = score;
   
     mvPtr->runTime = runTime;
-    
-
 	
 	return (void*)mvPtr;
 }
