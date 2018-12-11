@@ -88,6 +88,7 @@ int main(int argc, char *argv[]) {
 					
 				}
 				
+				printf("\n\n\n");
 				break;
 				
 			case 2: //print movies of specific country
@@ -124,13 +125,14 @@ int main(int argc, char *argv[]) {
 				//	list_srchNd((mvInfo, country), country, list);
 				//	mv_print(mvInfo);
 			    }
-				printf("totally %d movies are listed!!\n\n",count);
+				printf("totally %d movies are listed!!\n\n\n\n",count);
 				break;
 				
 			case 3:
 				//2.4.1 get minimal 0runtime value to search for
 				printf("select minimal runtime :");
 				scanf("%i", &runTime);
+				count = 0;
 				
 				ndPtr = list;
 				while (list_isEndNode(ndPtr) != 1/* repeat until the ndPtr points to the end node */)
@@ -140,13 +142,21 @@ int main(int argc, char *argv[]) {
 					//get object of ndPtr to mvInfo void pointer
 					//if the input runtime is lower than the runtime of the movie,
 					//then print the contents of the mvInfo
-					ndPtr = list_getNextNd(list);
-					mvInfo = list_getNdObj(list);
+					ndPtr = list_getNextNd(ndPtr);
+					mvInfo = list_getNdObj(ndPtr);
+					if((mv_getRunTime(mvInfo))>=runTime)
+					{
+						mv_print(mvInfo);
+						printf("--------------------------------------------\n");
+						count = count + 1;
+					}
 					//mv_getRunTime(mvInfo);
 				//	list_srchNd((mv_getRunTime(mvInfo)>=runTime)(mv_getRunTime(mvInfo), runTime), runTime, list);
 					
-				    mv_print(list);	
+	
 				}
+				
+				printf("totally %d movies are listed!!\n\n\n\n",count);
 				
 				break;
 				
@@ -154,6 +164,7 @@ int main(int argc, char *argv[]) {
 				//2.5.1 get minimal score value to search for
 				printf("select minimal score :");
 				scanf("%f", &score);
+				count = 0;
 				
 				ndPtr = list;
 					while (list_isEndNode(ndPtr) != 1 /*repeat until the ndPtr points to the end node */)
@@ -163,13 +174,17 @@ int main(int argc, char *argv[]) {
 					//get object of ndPtr to mvInfo void pointer
 					//if the input score is lower than the score of the movie,
 					//then print the contents of the mvInfo
-					ndPtr = list_getNextNd(list);
-					mvInfo = list_getNdObj(list);
-					if(score>=condition)
+					ndPtr = list_getNextNd(ndPtr);
+					mvInfo = list_getNdObj(ndPtr);
+					if((mv_getScore(mvInfo))>=score)
 					{
-					    mv_print(list);	
+						mv_print(mvInfo);
+						printf("--------------------------------------------\n");
+						count = count + 1;
 					}
 				}
+				printf("totally %d movies are listed!!\n\n\n\n",count);
+				
 				break;
 				
 			case 5:
