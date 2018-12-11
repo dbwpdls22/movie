@@ -19,7 +19,6 @@ int main(int argc, char *argv[]) {
 	int option; //user input option
 	void *list, *mvInfo; //pointers for linked list and a specific structure instance for a movie data
 	void *ndPtr; //void pointer for linked list node
-	float condition;
 	int count;
 	
 	//1. reading the movie.dat-----------------------------/
