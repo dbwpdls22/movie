@@ -18,8 +18,6 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)//영화 정
 
     mvPtr=(movInfo_t*)malloc(sizeof(movInfo_t));//영화 정보들을 구조체로 담을 메모리 영역 설정(동적할당) 
     
-    //fscanf(fp,"%s %s %i %f",mvPtr->name,mvPtr->madeIn,&mvPtr->runTime,&mvPtr->score);
-    
     strcpy(mvPtr->name,name);//파일에서 받은 영화 제목을 구조체의 name에 저장 
     
     strcpy(mvPtr->madeIn,country);//파일에서 받은 제작 국가를 구조체의 madeIn에 저장 
@@ -75,7 +73,6 @@ char* mv_getName(void* obj)//구조체의 멤버인  영화 제목을 추출하는 함수
 char* mv_getCountry(void* obj)//구조체의 멤버인  제작 국가를 추출하는 함수 
 { 
 	movInfo_t* mvPtr = (movInfo_t*)obj;//mvPtr은 obj를, obj는 영화 정보 구조체를 가리킴
-	
 	
 	return mvPtr->madeIn;//구조체의 제작 국가로 반환 
 }

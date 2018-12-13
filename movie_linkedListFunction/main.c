@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
 				count = 0; 
 				
 				ndPtr = list;
-					while (list_isEndNode(ndPtr) != 1)// repeat until the ndPtr points to the end node
+				while (list_isEndNode(ndPtr) != 1)// repeat until the ndPtr points to the end node
 				{
 					ndPtr = list_getNextNd(ndPtr);//get the next node of the input node
 					mvInfo = list_getNdObj(ndPtr);//get object of ndPtr to mvInfo void pointer
